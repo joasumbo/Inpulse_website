@@ -1,0 +1,19 @@
+# robots.txt para INPULSE Portugal
+User-agent: *
+Allow: /
+Allow: /eventos
+Allow: /servicos-tecnicos
+Allow: /car-wash
+Allow: /laser
+Allow: /ferrolandia
+Allow: /contacto
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://www.inpulse-events.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

@@ -24,10 +24,10 @@ const Navigation: React.FC = () => {
 
   const navLinks = [
     { path: '/', label: 'Início' },
-    { path: '/events', label: 'Events' },
-    { path: '/services', label: 'Services' },
-    { path: '/carwash', label: 'Car Wash' },
-    { path: '/laser', label: 'Laser' },
+    { path: '/eventos', label: 'Inpulse Events' },
+    { path: '/servicos-tecnicos', label: 'Inpulse Services' },
+    { path: '/car-wash', label: 'Inpulse Car Wash' },
+    { path: '/laser', label: 'Inpulse Laser' },
     { path: '/ferrolandia', label: 'Ferrolândia' },
   ];
 

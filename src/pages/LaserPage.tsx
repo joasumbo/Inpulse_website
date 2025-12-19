@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Zap, Palette, Music, Sparkles } from 'lucide-react';
+import { ArrowLeft, Zap, Layers, Ruler, CheckCircle, Package, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const LaserPage: React.FC = () => {
   const features = [
-    { icon: Zap, title: 'Laser Shows', desc: 'Espetáculos de laser sincronizados com música' },
-    { icon: Palette, title: 'Mapping', desc: 'Projeção mapeada em superfícies e estruturas' },
-    { icon: Music, title: 'Sincronização', desc: 'Perfeita sincronia com áudio e vídeo' },
-    { icon: Sparkles, title: 'Efeitos Especiais', desc: 'Criação de momentos únicos e memoráveis' },
+    { icon: Zap, title: 'Peças Técnicas', desc: 'Suportes, placas, adaptadores e prototipagem' },
+    { icon: Sparkles, title: 'Produtos Decorativos', desc: 'Chaveiros, figuras metálicas, placas com nomes' },
+    { icon: Layers, title: 'Peças Industriais', desc: 'Cortes de precisão para empresas e componentes em série' },
+    { icon: CheckCircle, title: 'Acabamentos', desc: 'Limpeza, rebarbação, polimento e pintura' },
   ];
 
   return (
@@ -28,7 +28,7 @@ const LaserPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            Laser
+            Inpulse Laser
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const LaserPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="page-subtitle"
           >
-            Shows de laser profissionais que criam experiências visuais inesquecíveis
+            Corte a laser de precisão para peças únicas
           </motion.p>
         </div>
       </motion.div>
@@ -50,11 +50,10 @@ const LaserPage: React.FC = () => {
             className="content-grid"
           >
             <div className="content-main">
-              <h2>Tecnologia Laser de Vanguarda</h2>
+              <h2>Sobre a Inpulse Laser</h2>
               <p>
-                Utilizamos equipamento laser de última geração para criar espetáculos visuais impressionantes. 
-                Desde shows sincronizados com música até projeções arquiteturais complexas, transformamos 
-                qualquer espaço numa experiência visual única.
+                Trabalhamos com corte a laser fibra para produzir peças em aço, inox ou ferro. 
+                Fazemos desde peças técnicas a produtos decorativos e estruturas maiores.
               </p>
 
               <div className="features-grid">
@@ -76,22 +75,31 @@ const LaserPage: React.FC = () => {
               </div>
 
               <div className="info-section">
-                <h3>Aplicações</h3>
+                <h3>Capacidades Técnicas</h3>
                 <ul>
-                  <li>Concertos e Festivais de Música</li>
-                  <li>Eventos Corporativos de Grande Escala</li>
-                  <li>Inaugurações e Lançamentos</li>
-                  <li>Celebrações e Festas Privadas</li>
-                  <li>Projeções Arquiteturais</li>
-                  <li>Shows Temáticos</li>
+                  <li>Corte até 15 mm em Aço</li>
+                  <li>Dimensões máximas: 3000 × 1500 mm</li>
+                  <li>Ritmo de produção rápido</li>
+                  <li>Qualidade constante</li>
+                  <li>Precisão milimétrica, produção rápida</li>
+                </ul>
+              </div>
+
+              <div className="info-section">
+                <h3>Vantagens para Clientes</h3>
+                <ul>
+                  <li>Rapidez na entrega</li>
+                  <li>Precisão elevada</li>
+                  <li>Flexibilidade de quantidades</li>
+                  <li>Produção local sem burocracia</li>
                 </ul>
               </div>
             </div>
 
             <div className="content-sidebar">
               <div className="cta-card">
-                <h3>Crie um Show Único</h3>
-                <p>Fale connosco sobre o seu projeto.</p>
+                <h3>Envie o seu desenho ou ideia</h3>
+                <p>Nós cortamos para si.</p>
                 <Link to="/contacto" className="btn-primary">Contactar</Link>
               </div>
             </div>

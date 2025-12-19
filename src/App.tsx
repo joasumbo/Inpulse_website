@@ -37,10 +37,10 @@ const Navigation: React.FC = () => {
 
   const navLinks = [
     { path: '/', label: 'Início' },
-    { path: '/eventos', label: 'Eventos' },
-    { path: '/servicos-tecnicos', label: 'Serviços' },
-    { path: '/car-wash', label: 'Car Wash' },
-    { path: '/laser', label: 'Laser' },
+    { path: '/eventos', label: 'Inpulse Events' },
+    { path: '/servicos-tecnicos', label: 'Inpulse Services' },
+    { path: '/car-wash', label: 'Inpulse Car Wash' },
+    { path: '/laser', label: 'Inpulse Laser' },
     { path: '/ferrolandia', label: 'Ferrolândia' },
   ];
 
@@ -89,16 +89,16 @@ const Footer: React.FC = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <img src="/inpulse_logo.png" alt="Inpulse" className="footer-logo" />
-            <p>Soluções audiovisuais premium para eventos corporativos e privados</p>
+            <p>Grupo com várias áreas especializadas</p>
           </div>
 
           <div className="footer-links">
             <div>
               <h4>Serviços</h4>
-              <Link to="/eventos">Eventos</Link>
-              <Link to="/servicos-tecnicos">Serviços Técnicos</Link>
-              <Link to="/car-wash">Car Wash</Link>
-              <Link to="/laser">Laser</Link>
+              <Link to="/eventos">Inpulse Events</Link>
+              <Link to="/servicos-tecnicos">Inpulse Services</Link>
+              <Link to="/car-wash">Inpulse Car Wash</Link>
+              <Link to="/laser">Inpulse Laser</Link>
               <Link to="/ferrolandia">Ferrolândia</Link>
             </div>
             <div>

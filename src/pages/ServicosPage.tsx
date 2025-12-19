@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Settings, Wrench, Shield, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Settings, Wrench, Shield, Lightbulb, Cable, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ServicosPage: React.FC = () => {
   const services = [
-    { icon: Settings, title: 'Consultoria AV', desc: 'Análise e planeamento de infraestrutura audiovisual' },
-    { icon: Wrench, title: 'Instalação', desc: 'Montagem profissional de equipamentos e sistemas' },
-    { icon: Shield, title: 'Manutenção', desc: 'Suporte técnico e manutenção preventiva' },
-    { icon: CheckCircle, title: 'Gestão de Projetos', desc: 'Coordenação completa de projetos audiovisuais' },
+    { icon: Cable, title: 'Cablagem e Redes', desc: 'Instalação de cabos de rede, reestruturação de sistemas antigos' },
+    { icon: Lightbulb, title: 'Iluminação e Eletricidade', desc: 'Substituição de focos, instalação LED, reparação de tomadas' },
+    { icon: Wrench, title: 'Pequenas Reparações', desc: 'Canalização, portas, perfis, ajustes e pequenas obras em Pladur' },
+    { icon: Settings, title: 'Serralharia', desc: 'Ajustes metálicos, suportes, perfis e peças feitas à medida' },
   ];
 
   return (
@@ -28,7 +28,7 @@ const ServicosPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            Serviços Técnicos
+            Inpulse Services
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const ServicosPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="page-subtitle"
           >
-            Consultoria e gestão especializada em infraestrutura audiovisual
+            Manutenção técnica de lojas e espaços comerciais
           </motion.p>
         </div>
       </motion.div>
@@ -50,11 +50,11 @@ const ServicosPage: React.FC = () => {
             className="content-grid"
           >
             <div className="content-main">
-              <h2>Soluções Técnicas Completas</h2>
+              <h2>Sobre a Inpulse Services</h2>
               <p>
-                Oferecemos consultoria especializada e gestão completa de projetos audiovisuais, desde o 
-                planeamento inicial até à manutenção contínua. A nossa equipa técnica garante que os seus 
-                sistemas funcionam com máxima eficiência.
+                Somos especialistas em manutenção técnica para lojas e empresas, com experiência diária 
+                em lojas de grupos como a Inditex. Trabalhamos à noite para evitar impacto no 
+                funcionamento da loja.
               </p>
 
               <div className="features-grid">
@@ -76,22 +76,21 @@ const ServicosPage: React.FC = () => {
               </div>
 
               <div className="info-section">
-                <h3>O Nosso Processo</h3>
-                <ol>
-                  <li>Análise das necessidades e objetivos</li>
-                  <li>Desenvolvimento de soluções personalizadas</li>
-                  <li>Implementação profissional</li>
-                  <li>Testes e otimização</li>
-                  <li>Formação e documentação</li>
-                  <li>Suporte contínuo</li>
-                </ol>
+                <h3>Vantagens para Lojas</h3>
+                <ul>
+                  <li>Trabalhamos fora do horário (noite)</li>
+                  <li>Equipa rápida e habituada a trabalhar em retalho</li>
+                  <li>Discrição total</li>
+                  <li>Serviço de urgência</li>
+                  <li>Preço justo por equipa (50€/hora)</li>
+                </ul>
               </div>
             </div>
 
             <div className="content-sidebar">
               <div className="cta-card">
-                <h3>Precisa de Consultoria?</h3>
-                <p>Fale connosco sobre o seu projeto.</p>
+                <h3>Precisa de manutenção rápida?</h3>
+                <p>Contacte a Inpulse Services</p>
                 <Link to="/contacto" className="btn-primary">Contactar</Link>
               </div>
             </div>

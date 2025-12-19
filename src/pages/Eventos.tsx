@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Music, Lightbulb, Video } from 'lucide-react';
+import { ArrowLeft, Calendar, Music, Lightbulb, Video, Truck, Building2, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Eventos: React.FC = () => {
   const features = [
-    { icon: Music, title: 'Som Profissional', desc: 'Sistemas de áudio de última geração para eventos de qualquer escala' },
-    { icon: Lightbulb, title: 'Iluminação Cénica', desc: 'Design de iluminação criativo e técnico para criar atmosferas únicas' },
-    { icon: Video, title: 'Projeção HD/4K', desc: 'Projetores de alta definição e telas LED para máximo impacto visual' },
-    { icon: Calendar, title: 'Streaming ao Vivo', desc: 'Transmissão profissional para alcançar audiências globais' },
+    { icon: Building2, title: 'Palco e Estruturas', desc: 'Palco móvel / camião-palco, estruturas TRUSS, pórticos e torres' },
+    { icon: Music, title: 'Som Profissional', desc: 'Sistemas line array, mesas digitais, afinação técnica adequada ao espaço' },
+    { icon: Lightbulb, title: 'Iluminação', desc: 'Luz de palco: moving heads, wash, efeitos especiais (fumo, laser)' },
+    { icon: Video, title: 'Vídeo e Multimédia', desc: 'Ecrãs LED interiores e exteriores, streaming e gravação' },
   ];
 
   return (
@@ -28,7 +28,7 @@ const Eventos: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            Eventos
+            Inpulse Events
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const Eventos: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="page-subtitle"
           >
-            Produção audiovisual completa para eventos corporativos e privados
+            Produção técnica completa para qualquer evento
           </motion.p>
         </div>
       </motion.div>
@@ -50,11 +50,11 @@ const Eventos: React.FC = () => {
             className="content-grid"
           >
             <div className="content-main">
-              <h2>Transformamos Eventos em Experiências Memoráveis</h2>
+              <h2>Sobre a Inpulse Events</h2>
               <p>
-                Com mais de 15 anos de experiência, oferecemos soluções audiovisuais completas para eventos 
-                de todos os tipos e dimensões. Da conceção à execução, garantimos que cada detalhe técnico 
-                contribui para o sucesso do seu evento.
+                A Inpulse Events é a área dedicada exclusivamente à produção e execução de eventos.
+                Trabalhamos com estruturas, som, luz, vídeo e equipas técnicas profissionais. 
+                Montamos, operamos e desmontamos — sem falhas e sem atrasos.
               </p>
 
               <div className="features-grid">
@@ -78,20 +78,31 @@ const Eventos: React.FC = () => {
               <div className="info-section">
                 <h3>Tipos de Eventos</h3>
                 <ul>
-                  <li>Conferências e Convenções</li>
-                  <li>Eventos Corporativos</li>
-                  <li>Concertos e Festivais</li>
-                  <li>Casamentos e Eventos Privados</li>
-                  <li>Lançamentos de Produtos</li>
-                  <li>Feiras e Exposições</li>
+                  <li>Concertos e palco ao vivo</li>
+                  <li>Eventos de empresas</li>
+                  <li>Festas municipais e populares</li>
+                  <li>Casamentos e datas especiais</li>
+                  <li>Inaugurações e lançamentos</li>
+                  <li>Festas de verão e festivais</li>
+                </ul>
+              </div>
+
+              <div className="info-section">
+                <h3>Como Trabalhamos</h3>
+                <ul>
+                  <li>Chegamos, montamos e entregamos tudo pronto</li>
+                  <li>Equipas técnicas experientes</li>
+                  <li>Resposta rápida a imprevistos</li>
+                  <li>Logística e transporte incluídos</li>
+                  <li>Projeto técnico se necessário</li>
                 </ul>
               </div>
             </div>
 
             <div className="content-sidebar">
               <div className="cta-card">
-                <h3>Vamos Trabalhar Juntos?</h3>
-                <p>Entre em contacto para discutirmos o seu próximo evento.</p>
+                <h3>Quer um orçamento direto e rápido?</h3>
+                <p>Fale connosco sobre o seu próximo evento.</p>
                 <Link to="/contacto" className="btn-primary">Solicitar Orçamento</Link>
               </div>
             </div>

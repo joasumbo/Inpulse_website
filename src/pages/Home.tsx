@@ -10,39 +10,39 @@ const Home: React.FC = () => {
 
   const services = [
     {
-      title: 'Eventos',
-      description: 'Produção audiovisual completa para eventos corporativos e privados',
+      title: 'Inpulse Events',
+      description: 'Eventos profissionais, de A a Z. Palco, som, luz, vídeo',
       icon: Calendar,
       link: '/eventos',
-      color: 'from-red-50 to-red-100/50'
+      color: 'from-blue-50 to-blue-100/50'
     },
     {
-      title: 'Serviços Técnicos',
-      description: 'Consultoria e gestão especializada em infraestrutura audiovisual',
+      title: 'Inpulse Services',
+      description: 'Manutenção técnica de lojas e espaços comerciais',
       icon: Settings,
       link: '/servicos-tecnicos',
       color: 'from-orange-50 to-orange-100/50'
     },
     {
-      title: 'Car Wash',
-      description: 'Lavagem premium de viaturas com produtos de qualidade',
+      title: 'Inpulse Car Wash',
+      description: 'Lavagem e detalhe automóvel — serviço profissional',
       icon: Droplets,
       link: '/car-wash',
       color: 'from-blue-50 to-blue-100/50'
     },
     {
-      title: 'Laser',
-      description: 'Shows de laser profissionais para momentos únicos',
+      title: 'Inpulse Laser',
+      description: 'Corte a laser fibra — aço, inox e ferro',
       icon: Zap,
       link: '/laser',
-      color: 'from-purple-50 to-purple-100/50'
+      color: 'from-red-50 to-red-100/50'
     },
     {
       title: 'Ferrolândia',
-      description: 'Soluções em ferragens e equipamentos para infraestrutura',
+      description: 'Marca infantil de peças em metal. Brinquedos, figuras e decorações',
       icon: Box,
       link: '/ferrolandia',
-      color: 'from-gray-50 to-gray-100/50'
+      color: 'from-purple-50 to-purple-100/50'
     },
   ];
 
@@ -77,14 +77,14 @@ const Home: React.FC = () => {
             </motion.div>
 
             <h1 className="hero-title">
-              Transformamos
+              INPULSE
               <br />
-              <span className="gradient-text">Eventos em Experiências</span>
+              <span className="gradient-text">Grupo Multidisciplinar</span>
             </h1>
 
             <p className="hero-description">
-              Soluções audiovisuais premium que elevam o seu evento a um novo nível. 
-              Da conceção à execução, cada detalhe é pensado para criar momentos memoráveis.
+              Somos um grupo com várias áreas especializadas — eventos, manutenção, laser, car wash e projetos infantis.
+              Trabalhamos com precisão, rapidez e qualidade.
             </p>
 
             <div className="hero-buttons">
@@ -166,16 +166,14 @@ const Home: React.FC = () => {
             className="about-content"
           >
             <div className="about-text">
-              <h2>Excelência em Cada Detalhe</h2>
+              <h2>Quem Somos</h2>
               <p>
-                Com mais de 15 anos de experiência, a Inpulse é referência em soluções audiovisuais 
-                para eventos. Nossa equipa especializada garante a qualidade técnica e criativa que 
-                o seu evento merece.
+                A Inpulse Events é a marca principal que representa todas as áreas que construímos ao longo dos anos.
               </p>
               <p>
-                Trabalhamos com equipamentos de última geração e profissionais altamente qualificados 
-                para transformar a sua visão em realidade. Do planeamento à execução, estamos ao seu 
-                lado em cada etapa.
+                Somos uma empresa versátil, técnica e prática — resolvemos problemas, criamos soluções 
+                e executamos projetos reais. Empresa com várias áreas ligadas entre si, resposta rápida, 
+                equipas práticas e técnicas, qualidade e execução sem complicações.
               </p>
               <Link to="/contacto" className="btn-primary">
                 Fale Connosco

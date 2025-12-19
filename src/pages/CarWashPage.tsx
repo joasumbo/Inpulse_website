@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Droplets, Sparkles, Shield, Star } from 'lucide-react';
+import { ArrowLeft, Droplets, Sparkles, Wind, Video } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const CarWashPage: React.FC = () => {
   const services = [
-    { icon: Droplets, title: 'Lavagem Exterior', desc: 'Limpeza completa da carroçaria com produtos premium' },
-    { icon: Sparkles, title: 'Limpeza Interior', desc: 'Aspiração e limpeza detalhada do interior' },
-    { icon: Shield, title: 'Polimento', desc: 'Tratamento profissional da pintura' },
-    { icon: Star, title: 'Proteção', desc: 'Aplicação de ceras e selantes de proteção' },
+    { icon: Droplets, title: 'Lavagem Exterior Completa', desc: 'Pré-lavagem, limpeza de carroçaria, secagem manual, pneus tratados' },
+    { icon: Sparkles, title: 'Lavagem Interior Completa', desc: 'Aspiração total, limpeza de plásticos, tratamento de bancos' },
+    { icon: Wind, title: 'Detalhe / Profundidade', desc: 'Higienização completa, limpeza de estofos, detalhamento de zonas críticas' },
+    { icon: Video, title: 'Vídeos de Limpeza', desc: 'Vídeos satisfatórios de alta qualidade para redes sociais' },
   ];
 
   return (
@@ -28,7 +28,7 @@ const CarWashPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            Car Wash
+            Inpulse Car Wash
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const CarWashPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="page-subtitle"
           >
-            Lavagem premium de viaturas com produtos de qualidade superior
+            Lavagem e detalhe automóvel com resultados imediatos
           </motion.p>
         </div>
       </motion.div>
@@ -50,10 +50,10 @@ const CarWashPage: React.FC = () => {
             className="content-grid"
           >
             <div className="content-main">
-              <h2>Cuidado Premium para o Seu Veículo</h2>
+              <h2>Sobre a Inpulse Car Wash</h2>
               <p>
-                Oferecemos serviços de lavagem profissional com produtos de alta qualidade e técnicas 
-                especializadas. O seu veículo merece o melhor tratamento.
+                Um serviço focado em limpeza profunda, detalhe e resultados visíveis. Trabalhamos com 
+                atenção ao detalhe e produtos profissionais.
               </p>
 
               <div className="features-grid">
@@ -75,20 +75,21 @@ const CarWashPage: React.FC = () => {
               </div>
 
               <div className="info-section">
-                <h3>Nossos Pacotes</h3>
+                <h3>Vantagens do Serviço</h3>
                 <ul>
-                  <li><strong>Básico:</strong> Lavagem exterior e aspiração</li>
-                  <li><strong>Completo:</strong> Lavagem + limpeza interior + vidros</li>
-                  <li><strong>Premium:</strong> Lavagem + polimento + proteção</li>
-                  <li><strong>Detailing:</strong> Serviço completo de restauro e proteção</li>
+                  <li>Rapidez</li>
+                  <li>Atenção ao pormenor</li>
+                  <li>Equipamento adequado</li>
+                  <li>Resultados a olho nu</li>
+                  <li>Limpezas profissionais que realmente fazem diferença</li>
                 </ul>
               </div>
             </div>
 
             <div className="content-sidebar">
               <div className="cta-card">
-                <h3>Agende o Seu Serviço</h3>
-                <p>Entre em contacto para marcações.</p>
+                <h3>Quer marcar a sua lavagem?</h3>
+                <p>Envie mensagem</p>
                 <Link to="/contacto" className="btn-primary">Marcar</Link>
               </div>
             </div>

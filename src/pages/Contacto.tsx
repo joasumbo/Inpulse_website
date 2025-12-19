@@ -123,10 +123,10 @@ const Contacto: React.FC = () => {
                     required
                   >
                     <option value="">Selecione...</option>
-                    <option value="eventos">Eventos</option>
-                    <option value="servicos">Serviços Técnicos</option>
-                    <option value="carwash">Car Wash</option>
-                    <option value="laser">Laser</option>
+                    <option value="eventos">Inpulse Events</option>
+                    <option value="servicos">Inpulse Services</option>
+                    <option value="carwash">Inpulse Car Wash</option>
+                    <option value="laser">Inpulse Laser</option>
                     <option value="ferrolandia">Ferrolândia</option>
                   </select>
                 </div>

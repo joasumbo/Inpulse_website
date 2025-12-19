@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Box, Wrench, HardHat, Lock } from 'lucide-react';
+import { ArrowLeft, Box, Sparkles, Heart, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const FerrolandiaPage: React.FC = () => {
   const products = [
-    { icon: Box, title: 'Estruturas', desc: 'Estruturas metálicas para palcos e eventos' },
-    { icon: Wrench, title: 'Fixações', desc: 'Sistemas de fixação e suporte profissionais' },
-    { icon: HardHat, title: 'Montagem', desc: 'Serviço de montagem especializada' },
-    { icon: Lock, title: 'Segurança', desc: 'Equipamentos certificados e seguros' },
+    { icon: Sparkles, title: 'Brinquedos', desc: 'Brinquedos resistentes e divertidos 100% metal' },
+    { icon: Heart, title: 'Figuras e Acessórios', desc: 'Figuras metálicas e decorações criativas' },
+    { icon: Users, title: 'Para Pais e Crianças', desc: 'Produtos ideais para feiras, escolas e lojas' },
+    { icon: Box, title: 'Qualidade Premium', desc: 'Feito com precisão e atenção ao detalhe' },
   ];
 
   return (
@@ -36,7 +36,7 @@ const FerrolandiaPage: React.FC = () => {
             transition={{ delay: 0.2 }}
             className="page-subtitle"
           >
-            Soluções em ferragens e equipamentos para infraestrutura de eventos
+            Marca infantil de peças em metal — A imaginação em aço
           </motion.p>
         </div>
       </motion.div>
@@ -50,11 +50,11 @@ const FerrolandiaPage: React.FC = () => {
             className="content-grid"
           >
             <div className="content-main">
-              <h2>Infraestrutura Profissional</h2>
+              <h2>Sobre a Ferrolândia</h2>
               <p>
-                Fornecemos estruturas metálicas, sistemas de fixação e equipamentos especializados para 
-                montagem de palcos, stands e infraestrutura de eventos. Todos os nossos produtos são 
-                certificados e cumprem as normas de segurança mais rigorosas.
+                Marca infantil de peças em metal. Criamos brinquedos, figuras, acessórios e decorações 
+                feitos para pais e crianças. Produtos resistentes, divertidos e 100% metal — ideal para 
+                feiras, escolas e lojas.
               </p>
 
               <div className="features-grid">
@@ -76,23 +76,23 @@ const FerrolandiaPage: React.FC = () => {
               </div>
 
               <div className="info-section">
-                <h3>Produtos e Serviços</h3>
+                <h3>Produtos</h3>
                 <ul>
-                  <li>Estruturas modulares para palcos</li>
-                  <li>Treliças e sistemas de suspensão</li>
-                  <li>Sistemas de fixação certificados</li>
-                  <li>Equipamentos de elevação</li>
-                  <li>Consultoria técnica especializada</li>
-                  <li>Serviços de montagem e desmontagem</li>
+                  <li>Brinquedos em metal</li>
+                  <li>Figuras decorativas</li>
+                  <li>Acessórios criativos</li>
+                  <li>Decorações para quartos</li>
+                  <li>Presentes únicos</li>
+                  <li>Produtos personalizados</li>
                 </ul>
               </div>
             </div>
 
             <div className="content-sidebar">
               <div className="cta-card">
-                <h3>Precisa de Equipamento?</h3>
+                <h3>Descubra a Coleção</h3>
                 <p>Consulte-nos sobre disponibilidade.</p>
-                <Link to="/contacto" className="btn-primary">Pedir Orçamento</Link>
+                <Link to="/contacto" className="btn-primary">Contactar</Link>
               </div>
             </div>
           </motion.div>
