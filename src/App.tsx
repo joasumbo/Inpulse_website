@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { SiteConfigProvider, useSiteConfig } from './contexts/SiteConfigContext';
+import { useMenu } from './hooks/useMenu';
 
 // Pages
 import Home from './pages/Home';
 import Eventos from './pages/Eventos';
-import ServicosPage from './pages/ServicosPage';
+import Servicos from './pages/Servicos';
 import CarWashPage from './pages/CarWashPage';
 import LaserPage from './pages/LaserPage';
 import FerrolandiaPage from './pages/FerrolandiaPage';
@@ -22,6 +24,8 @@ const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { config } = useSiteConfig();
+  const { menuItems } = useMenu();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +42,7 @@ const Navigation: React.FC = () => {
   const navLinks = [
     { path: '/', label: 'Início' },
     { path: '/eventos', label: 'Inpulse Events' },
-    { path: '/servicos-tecnicos', label: 'Inpulse Services' },
+    { path: '/servicos', label: 'Inpulse Services' },
     { path: '/car-wash', label: 'Inpulse Car Wash' },
     { path: '/laser', label: 'Inpulse Laser' },
     { path: '/ferrolandia', label: 'Ferrolândia' },
@@ -53,7 +57,7 @@ const Navigation: React.FC = () => {
     >
       <div className="nav-container">
         <Link to="/" className="logo">
-          <img src="/inpulse_logo.png" alt="Inpulse" />
+          <img src={config?.logo_url || "/inpulse_logo.png"} alt={config?.site_name || "Inpulse"} />
         </Link>
 
         <div className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
@@ -83,20 +87,22 @@ const Navigation: React.FC = () => {
 };
 
 const Footer: React.FC = () => {
+  const { config } = useSiteConfig();
+  
   return (
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-brand">
-            <img src="/inpulse_logo.png" alt="Inpulse" className="footer-logo" />
-            <p>Grupo com várias áreas especializadas</p>
+            <img src={config?.logo_url || "/inpulse_logo.png"} alt={config?.site_name || "Inpulse"} className="footer-logo" />
+            <p>{config?.site_description || "Grupo com várias áreas especializadas"}</p>
           </div>
 
           <div className="footer-links">
             <div>
               <h4>Serviços</h4>
               <Link to="/eventos">Inpulse Events</Link>
-              <Link to="/servicos-tecnicos">Inpulse Services</Link>
+              <Link to="/servicos">Inpulse Services</Link>
               <Link to="/car-wash">Inpulse Car Wash</Link>
               <Link to="/laser">Inpulse Laser</Link>
               <Link to="/ferrolandia">Ferrolândia</Link>
@@ -108,14 +114,18 @@ const Footer: React.FC = () => {
             </div>
             <div>
               <h4>Contacto</h4>
-              <a href="tel:+351960101116">+351 960 101 116</a>
-              <a href="mailto:info@inpulse.pt">info@inpulse.pt</a>
+              <a href={`tel:${config?.contact_phone || '+351960101116'}`}>
+                {config?.contact_phone || '+351 960 101 116'}
+              </a>
+              <a href={`mailto:${config?.contact_email || 'info@inpulse.pt'}`}>
+                {config?.contact_email || 'info@inpulse.pt'}
+              </a>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Inpulse. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} {config?.site_name || 'Inpulse'}. Todos os direitos reservados.</p>
           <div className="footer-social">
             <a href="#" aria-label="Facebook">Facebook</a>
             <a href="#" aria-label="Instagram">Instagram</a>
@@ -144,24 +154,27 @@ const PageTransition: React.FC<{ children: React.ReactNode }> = ({ children }) =
 // Main App Component
 const App: React.FC = () => {
   const location = useLocation();
+  const isServicosPage = location.pathname === '/servicos';
 
   return (
     <div className="app">
-      <Navigation />
+      {!isServicosPage && <Navigation />}
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/eventos" element={<PageTransition><Eventos /></PageTransition>} />
-          <Route path="/servicos-tecnicos" element={<PageTransition><ServicosPage /></PageTransition>} />
+          <Route path="/servicos" element={<Servicos />} />
+          {/* Página antiga descontinuada — redireciona para /servicos */}
+          <Route path="/servicos-tecnicos" element={<Navigate to="/servicos" replace />} />
           <Route path="/car-wash" element={<PageTransition><CarWashPage /></PageTransition>} />
           <Route path="/laser" element={<PageTransition><LaserPage /></PageTransition>} />
           <Route path="/ferrolandia" element={<PageTransition><FerrolandiaPage /></PageTransition>} />
           <Route path="/contacto" element={<PageTransition><Contacto /></PageTransition>} />
         </Routes>
       </AnimatePresence>
-      <Footer />
-      <Chatbot />
-      <CookieConsent />
+      {!isServicosPage && <Footer />}
+      {!isServicosPage && <Chatbot />}
+      {!isServicosPage && <CookieConsent />}
       <Loader />
     </div>
   );
@@ -171,7 +184,9 @@ const App: React.FC = () => {
 const AppWithRouter: React.FC = () => {
   return (
     <Router>
-      <App />
+      <SiteConfigProvider>
+        <App />
+      </SiteConfigProvider>
     </Router>
   );
 };

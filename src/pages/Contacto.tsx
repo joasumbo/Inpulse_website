@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, Phone, Mail, MapPin } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Phone, Mail, MapPin, CheckCircle2, XCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 const Contacto: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -11,12 +12,34 @@ const Contacto: React.FC = () => {
     service: '',
     message: '',
   });
+  const [sending, setSending] = useState(false);
+  const [notification, setNotification] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Obrigado pelo seu contacto! Entraremos em contacto em breve.');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    setSending(true);
+    setNotification('');
+
+    try {
+      const { error } = await supabase.from('contacts').insert([{
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        subject: formData.service,
+        message: formData.message,
+      }]);
+
+      if (error) throw error;
+
+      setNotification('success');
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (error) {
+      console.error('Erro ao enviar:', error);
+      setNotification('error');
+    } finally {
+      setSending(false);
+      setTimeout(() => setNotification(''), 5000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -80,6 +103,30 @@ const Contacto: React.FC = () => {
             </div>
 
             <form className="contact-form-section" onSubmit={handleSubmit}>
+              <AnimatePresence>
+                {notification && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className={`notification-box ${notification === 'success' ? 'success' : 'error'}`}
+                  >
+                    {notification === 'success' ? (
+                      <>
+                        <CheckCircle2 className="notification-icon" />
+                        <p>Obrigado! Recebemos a sua mensagem e responderemos em breve.</p>
+                      </>
+                    ) : (
+                      <>
+                        <XCircle className="notification-icon" />
+                        <p>Erro ao enviar mensagem. Por favor, tente novamente.</p>
+                      </>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <div className="form-row">
                 <div className="form-field">
                   <label>Nome Completo</label>
@@ -143,8 +190,8 @@ const Contacto: React.FC = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn-primary">
-                Enviar Mensagem
+              <button type="submit" className="btn-primary" disabled={sending}>
+                {sending ? 'A enviar...' : 'Enviar Mensagem'}
               </button>
             </form>
           </motion.div>

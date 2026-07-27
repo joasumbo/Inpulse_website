@@ -1,17 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar, Settings, Droplets, Zap, Box } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 const Home: React.FC = () => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
+  
+  const [homeContent, setHomeContent] = useState({
+    hero_badge: 'Disponível para novos projetos',
+    hero_title: 'INPULSE',
+    hero_subtitle: 'Grupo Multidisciplinar',
+    hero_description: 'Somos um grupo com várias áreas especializadas — eventos, manutenção, laser, car wash e projetos infantis. Trabalhamos com precisão, rapidez e qualidade.',
+    hero_cta_primary: 'Começar Projeto',
+    hero_cta_secondary: 'Explorar Serviços',
+  });
+
+  useEffect(() => {
+    loadHomeContent();
+  }, []);
+
+  const loadHomeContent = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('home_content')
+        .select('*')
+        .single();
+
+      if (error) throw error;
+      if (data) {
+        setHomeContent({
+          hero_badge: data.hero_badge,
+          hero_title: data.hero_title,
+          hero_subtitle: data.hero_subtitle,
+          hero_description: data.hero_description,
+          hero_cta_primary: data.hero_cta_primary,
+          hero_cta_secondary: data.hero_cta_secondary,
+        });
+      }
+    } catch (error) {
+      console.error('Erro ao carregar conteúdo da home:', error);
+    }
+  };
 
   const services = [
     {
       title: 'Inpulse Events',
-      description: 'Eventos profissionais, de A a Z. Palco, som, luz, vídeo',
+      description: 'Produção técnica completa para qualquer evento',
       icon: Calendar,
       link: '/eventos',
       color: 'from-blue-50 to-blue-100/50'
@@ -73,27 +110,26 @@ const Home: React.FC = () => {
               transition={{ delay: 0.2 }}
             >
               <span className="badge-dot" />
-              Disponível para novos projetos
+              {homeContent.hero_badge}
             </motion.div>
 
             <h1 className="hero-title">
-              INPULSE
+              {homeContent.hero_title}
               <br />
-              <span className="gradient-text">Grupo Multidisciplinar</span>
+              <span className="gradient-text">{homeContent.hero_subtitle}</span>
             </h1>
 
             <p className="hero-description">
-              Somos um grupo com várias áreas especializadas — eventos, manutenção, laser, car wash e projetos infantis.
-              Trabalhamos com precisão, rapidez e qualidade.
+              {homeContent.hero_description}
             </p>
 
             <div className="hero-buttons">
               <Link to="/contacto" className="btn-primary">
-                Começar Projeto
+                {homeContent.hero_cta_primary}
                 <ArrowRight size={18} />
               </Link>
               <a href="#servicos" className="btn-secondary">
-                Explorar Serviços
+                {homeContent.hero_cta_secondary}
               </a>
             </div>
 

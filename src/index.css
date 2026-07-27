@@ -24,6 +24,10 @@
     --input: 0 0% 92%;
     --ring: 5 79% 52%;
     --radius: 0.75rem;
+    
+    /* Dynamic colors from Supabase */
+    --color-primary: #DF4E27;
+    --color-secondary: #F69220;
   }
 }
 

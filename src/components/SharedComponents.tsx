@@ -167,7 +167,8 @@ const MagneticButton: React.FC<{
   className?: string;
   onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'outline';
-}> = ({ children, className = '', onClick, variant = 'primary' }) => {
+  disabled?: boolean;
+}> = ({ children, className = '', onClick, variant = 'primary', disabled = false }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const ref = React.useRef<HTMLButtonElement | null>(null);
 
@@ -193,7 +194,8 @@ const MagneticButton: React.FC<{
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
-      className={`px-6 py-3 rounded-xl font-semibold transition-transform duration-200 ${variants[variant]} ${className}`}
+      disabled={disabled}
+      className={`px-6 py-3 rounded-xl font-semibold transition-transform duration-200 ${variants[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
       style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
       data-hover
     >

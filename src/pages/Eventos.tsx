@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Music, Lightbulb, Video, Truck, Building2, Users } from 'lucide-react';
+import { ArrowLeft, Music, Lightbulb, Video, Building2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Eventos: React.FC = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Zap, Layers, Ruler, CheckCircle, Package, Sparkles } from 'lucide-react';
+import { ArrowLeft, Zap, Layers, CheckCircle, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const LaserPage: React.FC = () => {
